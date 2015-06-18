@@ -1,0 +1,61 @@
+﻿@model WebApplication2.Models.doctor1
+@{
+    ViewBag.Title = "admin";
+}
+@Styles.Render("~/Content/styles.css")
+@Styles.Render("~/Content/bootstrap.css")
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jssor.js"></script>
+<script src="~/Scripts/jssor.slider.js"></script>
+<h2>admin</h2>
+<div>
+    <div id="slider1_container" style="align-content:center;position: relative;bottom:100px; top: 50px; left: 20px; width: 1000px;
+        height: 300px;">
+        <!-- Slides Container -->
+        <div class="jumbotron col-lg-10" u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 300px;
+            overflow: hidden;">
+            <div><img u="image" src="~/images/back4.jpg" /></div>
+            <div><img u="image" src="~/images/1.jpg" /></div>
+            <div><img u="image" src="~/images/aaa.png" /></div>
+            <div><img u="image" src="~/images/help.png" /></div>
+        </div>
+
+        <div class="col-lg-2 btn-default" style="float:right;">
+            <div style="font-size:1.6em;margin-bottom:20px;margin-top:22px;" class="btn-default">
+               
+                 @Html.ActionLink("Doctors", "doctors", "admin", new { area = "" }, new { @class = "btn-brand", @style = "color:blue;" })
+            </div>
+            <div style="font-size:1.6em;margin-bottom:20px;" class="btn-default">
+                @Html.ActionLink("Patients", "Patients", "admin", new { area = "" }, new { @class = "btn-brand", @style = "color:blue;" })
+            </div>
+            <div style="font-size:1.6em;margin-bottom:20px;margin-top:22px;" class="btn-default">
+                @Html.ActionLink("Appointments", "apo", "admin", new { area = "" }, new { @class = "btn-brand", @style = "color:blue;" })
+            </div>
+            <div style="font-size:1.6em;margin-bottom:20px;margin-top:22px;" class="btn-default">
+                @Html.ActionLink("Logout", "Index", "Home", new { area = "" }, new { @class = "btn-brand", @style = "color:blue;" })
+            </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            var options = {
+                $AutoPlay: true,
+                $DragOrientation: 1
+            };
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+        });
+    </script>
+    <div style="margin-top:80px">
+
+        <form method="post" action="/admin/search">
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="n1" placeholder="Search Doctor">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

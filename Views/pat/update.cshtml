@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Registration pateient";
+}
+
+@Styles.Render("~/Content/styles.css")
+@Styles.Render("~/Content/bootstrap.css")
+    <div class="col-md-3"></div>
+
+    <div class="col-md-8">
+
+        <div>
+            <h2 style="border-radius: 5px;" class="alert-info bg-primary">
+                Our responsibility
+            </h2>
+            <p>
+                kkkk n nnnn ggg gft bhjgyu hggjhgyu hjgjuf hghjfutf hjftud vhjftf bf
+                nkjh nkjhuj ghjf vvvvvvvvvvvvv vvv vvv vvv vvv vvv vvv vvv vvv vv v
+                b bb bb bb bbb bb bb b bb bb bbb bb bb bb bbb bb b
+                l ll ll l l l
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-2">
+
+        <div>
+            <h3 style="color:cadetblue"> Patients record</h3>
+
+            <img src="~/images/D0.jpg" />
+
+        </div>
+        <div>
+            <p>
+                rehman malik
+                age 33
+                disease cancer
+
+            </p>
+        </div>
+    </div>
+    <br />
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+        <div>
+            <h2 class="page-header bg-primary">
+                Pateint's Registration Form
+            </h2>
+        </div>
+
+        <form method="post" action="/pat/updated" >
+            <div style="margin-top:40px;margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                First Name:
+            </div>
+            <div style="margin-top:40px;margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" value=@Model.fname name="fname"/>
+            </div>
+            <br />
+
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Last Name:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" value=@Model.lname name="lname" />
+            </div>
+            <br />
+
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Password:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" value=@Model.pwd name="pwd" />
+            </div>
+            <br />
+
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Desease:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" value=@Model.deasease name="deasease" />
+            </div>
+
+            <br />
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Age:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" value=@Model.age name="age" />
+
+            </div>
+            <input class="btn-primary" style="margin-left:200px;border-radius:5px;" type="submit" value="update"/>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+
+
+    <div class="row"></div>
+    <div class="alert-info">
+        <h2 class="alert-info" style="border-radius: 5px;"> Must Read policy for more info </h2>
+        <div style="float: right;border-radius: 5px; width: 120px" ;font-size:1.6em;margin-bottom:2px;" class="btn-info"><a href="/policy.html">Policy</a> </div>
+    </div>

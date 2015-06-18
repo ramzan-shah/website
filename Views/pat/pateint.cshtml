@@ -1,0 +1,99 @@
+﻿@model List<WebApplication2.Models.myclass>
+@{
+    ViewBag.Title = "Pateient";
+}
+
+@Styles.Render("~/Content/styles.css")
+@Styles.Render("~/Content/bootstrap.css")
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jssor.js"></script>
+<script src="~/Scripts/jssor.slider.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $(document).ready(function () {
+                $("#search").on("click", function () {
+                    alert("hello");
+                    var userName = $('#n1').val();
+                $.ajax({
+                    type: 'GET',
+                    data: {
+                        id: userName
+                    },
+                    url: '@Url.Action("search", "pat")',
+                    success: function (item) {
+                                            window.alert("AGAYA");
+                                            $.each(item, function (i, data) {
+                                                $('#t1').append('<tr><td>' + data.fname + ' <td>&nbsp;</td></td><td>' + data.lname + ' <td>&nbsp;</td></td><td>' + data.hospital + ' <td>&nbsp;</td></td><td>' + data.sepecialization + ' <td>&nbsp;</td></td><td>' + '<a href=/Apointment/fixAp/?id= ' + data.username + '>Apointment</a></td></tr>');
+
+                        });
+                    },
+                    error: function (d) {
+                        window.alert("Error Occured Please Try Later");
+                    }
+                });
+            });
+        });
+    </script>
+<div>
+    
+    <div id="slider1_container" style="align-content:center;position: relative;bottom:100px; top: 50px; left: 20px; width: 1000px;
+        height: 300px;">
+        <!-- Slides Container -->
+        <div class="jumbotron col-lg-10" u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 300px;
+            overflow: hidden;">
+            <div><img u="image" src="~/images/back4.jpg" /></div>
+            <div><img u="image" src="~/images/1.jpg" /></div>
+            <div><img u="image" src="~/images/aaa.png" /></div>
+            <div><img u="image" src="~/images/help.png" /></div>
+        </div>
+
+        <div class="col-lg-2 btn-default" style="float:right;">
+            <div style="font-size:1.6em;margin-bottom:20px;margin-top:22px;" class="btn-default">
+                @Html.ActionLink("Update", "update", "doc", new { area = "" }, new { @class = "btn-brand", @style = "color:blue;" })
+            </div>
+            <div style="font-size:1.6em;margin-bottom:20px;" class="btn-default">
+                @Html.ActionLink("Leave", "leave", "doc", new { area = "" }, new { @class = "btn-brand", @style = "color:blue;" })
+            </div>
+            <div style="font-size:.9em;margin-bottom:120px;" class="btn-default"><a href="/#">Tell me more</a> </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            var options = {
+                $AutoPlay: true,
+                $DragOrientation: 1
+            };
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+        });
+    </script>
+
+    <div style="margin-top:100px">
+        
+        <div class="input-group">
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="n1" name="n1" placeholder="Search Doctor">
+                    <input type="button" value="Search" id="search" class="btn btn-warning" />
+                </div>
+            </div>
+        </div>
+           
+        <div align="center">
+            <table cellpadding="3" border="1" id="t1">
+            <tr>
+            <td><span class="label label-warning">Doctor first Name</span></td>
+            <td>&nbsp;</td>
+            <td><span class="label label-warning">Doctor Last name</span></td>
+            <td>&nbsp;</td>
+            <td><span class="label label-warning">Doctor hospital </span></td>
+            <td>&nbsp;</td>
+            <td><span class="label label-warning">Doctor sepialization</span></td>
+            <td>&nbsp;</td>
+            <td><span class="label label-warning">Fix Appionments</span></td>
+            <td>&nbsp;</td>
+            </tr>
+            </table>
+        </div>
+    </div>
+</div>

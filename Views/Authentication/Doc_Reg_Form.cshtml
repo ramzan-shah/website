@@ -1,0 +1,173 @@
+﻿@model WebApplication2.Models.doctor1
+@{
+    ViewBag.Title = "Registration Doctor";
+}
+
+@Styles.Render("~/Content/styles.css")
+@Styles.Render("~/Content/bootstrap.css")
+    <div class="col-md-3"></div>
+
+    <div class="col-md-8">
+
+        <div>
+            <h2 class="alert-info bg-primary" style="border-radius:5px;">
+                Our responsibility
+            </h2>
+            <p>
+                kkkk n nnnn ggg gft bhjgyu hggjhgyu hjgjuf hghjfutf hjftud vhjftf bf
+                nkjh nkjhuj ghjf vvvvvvvvvvvvv vvv vvv vvv vvv vvv vvv vvv vvv vv v
+                b bb bb bb bbb bb bb b bb bb bbb bb bb bb bbb bb b
+                l ll ll l l l
+            </p>
+        </div>
+    </div>
+    
+    <div class="col-md-1"></div>
+
+    <div class="col-md-2">
+
+        <div>
+            <h3 style="color:cadetblue">  Our best doctor record</h3>
+
+            <img src="~/images/D0.jpg" />
+
+        </div>
+        <div>
+            <p>
+                Dr Rehman
+                heart surgeon
+
+            </p>
+        </div>
+    </div>
+    <br />
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+        <div>
+            <h2 class="page-header bg-primary">
+                Doctor's Registration Form
+            </h2>
+        </div>
+        
+        @using (Html.BeginForm("Doc_Reg_Form", "Authentication"))
+        {  
+            <div style="margin-top:40px;margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                First Name:
+            </div>
+            <div style="margin-top:40px;margin-bottom:30px;font-weight:800;" class="col-md-6">
+                @Html.TextBoxFor(m => m.fname, new { id = "d1", @placeholder = "First Name" })
+            </div>
+            <br />
+
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Last Name:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                @Html.TextBoxFor(m => m.lname, new { id = "d2", @placeholder = "Last Name" })
+                
+            </div>
+            <br />
+            <p id="result" style="color:red"></p>
+            <p id="result1" style="color:green"></p>
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                UserName:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                @Html.TextBoxFor(m => m.username, new { id = "d3", @placeholder = "UserName"})
+
+                @Scripts.Render("~/bundles/jquery")
+                <script>
+
+                    $(document).ready(function () {
+
+                        $('#checking').hide();
+
+                        $('#d3').focusout(function () {
+                            var userName = $('#d3').val();
+                            if (userName == "") {
+                                $('#result').text("Username is mandatory");
+                            }
+                            else {
+                                $('#checking').show();
+                                $.getJSON("/Authentication/CheckUserName?UserName=" + userName, function (data) {
+                                    $('#checking').hide();
+                                    if (data) {
+                                        $('#result').text("User already exists in database");
+                                    }
+                                    else {
+                                        $('#result1').text("User Name is available");
+                                        $('#checking').show();
+                                    }
+                                });
+                            }
+                        });
+
+                    });
+                    $('#d3').focusin(function () {
+                        $('#result').text("");
+                        $('#result1').text("");
+                    });
+
+                </script>
+
+
+            </div>
+            <br />
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Password:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                @Html.TextBoxFor(m => m.pwd, new { id = "d4", @placeholder = "Password" })
+            </div>
+            <br />
+
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Department::
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                @Html.TextBoxFor(m => m.dept, new { id = "d4", @placeholder = "Department" })
+            </div>
+
+            <br />
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Sepecialization:
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                @Html.TextBoxFor(m => m.sepecialization, new { id = "d4", @placeholder = "Sepecialization" })
+            </div>
+            <br />
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Experiance in years: :
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" placeholder=" Experiance in years" name="experiance" />
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Area of service:  :
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" placeholder="  Area of service" name="area" />
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="bg-primary col-md-6">
+                Hospital where serving :
+            </div>
+            <div style="margin-bottom:30px;font-weight:800;" class="col-md-6">
+                <input type="text" placeholder="  Hospital where serving" name="hospital" />
+            </div>
+
+            <br />
+            <div class="col-md-4"></div>
+            <input class="btn-primary" id="checking" style="margin-left:100px;border-radius:5px;" type="submit" value="Register" />
+            <div class="col-md-4"></div>
+            }
+</div>
+    <div class="row"></div>
+    <div >
+        <h2 class ="alert-info" style="border-radius:5px;"> Must Read policy for more info </h2>
+        <div style="float: right;border-radius: 5px; width: 120px" ;font-size:1.6em;margin-bottom:2px;" class="btn-info alert-info">
+        @Html.ActionLink("Policy","Policy","Home")
+    </div>
+</div>
+<div class="col-md-3"></div>

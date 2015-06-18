@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Registration";
+}
+
+@Styles.Render("~/Content/styles.css")
+@Styles.Render("~/Content/bootstrap.css")
+<div>
+    <h2 style="background-color: green; border-radius: 5px;color:white;padding-left:16em" class="page-header">
+        Join
+    </h2>
+</div>
+    <div style="margin-top:40px;">
+        <p>
+            Doctors.net.uk has two different sites; one for doctors and one for medical students.
+        </p>
+    </div>
+    <div style="margin-top:20px;">
+        <p class="text-primary" style="font-weight:800;font-size:18px">
+            Please click the appropriate button...
+        </p>
+    </div>
+    <div style="background:url('gery-bg.jpg');">
+        <div class="col-md-6">
+            <p style="margin-top:40px;"> <span style="font-size:18px;font-weight:800;">Doctors </span>  - you'll need your registration details to<br /> join. </p>
+            <div class="btn-default" style="float: left; width: 220px">
+                <div style="font-weight:900;font-size:14px ;padding:8px 8px 8px 8px; background-color:blue;color:white; margin-bottom:20px;margin-top:22px;" class="bg-primary">
+                    @Html.ActionLink("DOCTOR REGISTRATION", "Doc_Reg_Form", "Authentication")
+                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <p style="margin-top:40px;"> <span style="font-size:18px;font-weight:800;">Dear Pateint </span>  - you'll need your Medical details to<br /> join. </p>
+            <div style="float: left; width: 220px">
+                <div style="font-weight:900;font-size:14px ;padding:8px 8px 8px 8px; background-color:blue;color:white; margin-bottom:20px;margin-top:22px;" class="bg-primary">
+                      @Html.ActionLink("PATEINT REGISTRATION", "Pat_Reg_Form", "Authentication")
+                 </div>
+            </div>
+        </div>
+    </div>

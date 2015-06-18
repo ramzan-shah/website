@@ -1,0 +1,51 @@
+﻿@model List<WebApplication2.Models.pat>
+@{
+    ViewBag.Title = "search";
+}
+
+<h2>search</h2>
+
+<div class="jumbotron">
+
+    <img src="~/images/back4.jpg" />
+</div>
+
+<table>
+    <tr>
+        <td class="col-lg-3">
+            First Name
+        </td>
+        <td class="col-lg-3">
+            Last Name
+        </td>
+        <td class="col-lg-3">
+            deasease
+        </td>
+        <td class="col-lg-3">
+            age
+        </td>
+        <td class="col-lg-3">
+            Delete
+        </td>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td class="col-lg-3">
+                @Model[i].fname
+            </td>
+            <td class="col-lg-3">
+                @Model[i].lname
+            </td>
+            <td class="col-lg-3">
+                @Model[i].deasease
+            </td>
+            <td class="col-lg-3">
+                @Model[i].age
+            </td>
+            <td class="col-lg-3">
+                <a href="/admin/deletepat/?id=@Model[i].username">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

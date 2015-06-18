@@ -1,0 +1,51 @@
+﻿@model List<WebApplication2.Models.doctor1>
+@{
+    ViewBag.Title = "search";
+}
+
+<h2>search</h2>
+
+<div class="jumbotron">
+
+    <img src="~/images/back4.jpg" />
+</div>
+
+<table>
+    <tr>
+        <td class="col-lg-3">
+            First Name
+        </td>
+        <td class="col-lg-3">
+            Last Name
+        </td>
+        <td class="col-lg-3">
+            Hospital
+        </td>
+        <td class="col-lg-3">
+            Sepcialization
+        </td>
+        <td class="col-lg-3">
+            Delete
+        </td>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td class="col-lg-3">
+                @Model[i].fname
+            </td>
+            <td class="col-lg-3">
+                @Model[i].lname
+            </td>
+            <td class="col-lg-3">
+                @Model[i].hospital
+            </td>
+            <td class="col-lg-3">
+                @Model[i].sepecialization
+            </td>
+            <td class="col-lg-3">
+                <a href="/admin/delete/?id=@Model[i].username">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
